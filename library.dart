@@ -2,35 +2,35 @@ import 'book.dart';
 import 'loan.dart';
 import 'member.dart';
 class Library{
-  List<Book> books = [];
-  List<Loan> loan = [];
+  List<Book> _books = [];
+  List<Loan> _loan = [];
   void addBook(Book book){
-    books.add(book);
+    _books.add(book);
   }
   void listBooks(){
-    for(Book book in books){
+    for(Book book in _books){
       print("===========");
-      print(book.author);
-      print(book.title);
-      print(book.isbn);
-      print(book.isAvailable);
+      print(book.getAuthor);
+      print(book.getTitle);
+      print(book.getIsbn);
+      print(book.getIsAvailable);
     }
   }
   void loanBook(Book book, Member member){
-    if(book.isAvailable){
-      book.isAvailable = false;
-      loan.add(Loan(book, member, DateTime.now()));
+    if(book.getIsAvailable){
+      book.setIsAvailable = false;
+      _loan.add(Loan(book, member, DateTime.now()));
     }
   }
   void listLoanBooks(){
     print("Loan books are");
-    for(Loan loanBook in loan){
+    for(Loan loanBook in _loan){
       print("=========");
-      Book book = loanBook.book;
-      print(book.author);
-      print(book.title);
-      print(book.isbn);
-      print(book.isAvailable);
+      Book book = loanBook.getBook;
+      print(book.getAuthor);
+      print(book.getTitle);
+      print(book.getIsbn);
+      print(book.getIsAvailable);
     }
   }
 }

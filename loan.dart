@@ -2,13 +2,37 @@ import 'book.dart';
 import 'member.dart';
 
 class Loan{
-  Book book;
-  Member member;
-  DateTime dateTime;
-  DateTime? returnDate;
-  Loan(this.book, this.member, this.dateTime, [this.returnDate]);
+  Book _book;
+  Member _member;
+  DateTime _dateTime;
+  DateTime? _returnDate;
+  Loan(this._book, this._member, this._dateTime, [this._returnDate]);
   void returnBook(){
-    returnDate = DateTime.now();
-    book.isAvailable = true;
+    _returnDate = DateTime.now();
+    _book.setIsAvailable = true;
+  }
+  Book get getBook{
+    return _book;
+  }
+  set setBook(Book book){
+    _book = book;
+  }
+  Member get getMember{
+    return _member;
+  }
+  set setMember(Member member){
+    _member = member;
+  }
+  DateTime get getDateTime{
+    return _dateTime;
+  }
+  set setDateTime(DateTime datetime){
+    _dateTime = datetime;
+  }
+  DateTime? get getReturnDateTime{
+    return _returnDate;
+  }
+  set setReturnDateTime(DateTime returnDatetime){
+    _returnDate = returnDatetime;
   }
 }
